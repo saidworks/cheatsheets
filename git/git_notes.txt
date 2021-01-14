@@ -1,0 +1,44 @@
+
+
+Example for git_practice
+
+    mkdir git_practice to make a new directory to practice.
+    cd git_practice to make the new directory your working directory.
+    git init to turn the current, empty directory into a fresh Git repository.
+    echo "Hello Git and GitHub" >> README.txt to create a new README file (more on this later) with some sample text.
+    git add README.txt to add the new file to the Git staging area.
+    git commit -m "First commit" to make your first commit with the new README file.
+
+Git commands
+
+git init
+git status
+git log
+git add <filename> ---for all file type '.' without brackets-- 
+git commit -m "balabala"
+
+Github commands
+	1.New repository
+git remote add origin <url of repository in github> 
+git push -u origin master
+	2. Existing repository
+git remote add <repository name> <url>
+git push -u <repository name>  
+
+https://github.com/saidworks/udacity.git
+safety password
+https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+
+
+another method:
+create the repository on github then clone it using the following : git clone git@github.com:username/google-homepage.git
+
+
+delete branch 
+//create branch
+ 
+// delete branch locally
+git branch -d localBranchName
+
+// delete branch remotely
+git push origin --delete remoteBranchName
