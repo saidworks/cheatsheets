@@ -42,3 +42,15 @@ git branch -d localBranchName
 
 // delete branch remotely
 git push origin --delete remoteBranchName
+
+// commit files only in specific folder to commit
+git add . 
+git commit -m 'message' -- my-dir
+
+
+//if the default branch has been renamed! like from master to main in github, If you have a local clone, you can update it by running:
+
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
