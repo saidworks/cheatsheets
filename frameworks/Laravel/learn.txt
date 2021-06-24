@@ -1,0 +1,184 @@
+I.Start new project
+1. Setup db and .env file 
+2. Generate security key : php artisan key:generate
+3. Create symblic link to the public directory to access stored medias: php artisan storage:link
+4. Start the server : php artisan serve
+
+
+II.Routing 
+<?php
+
+Route::get($uri, $callback);
+?>
+
+The router allows you to register routes that respond to any HTTP verb:
+
+Route::get($uri, $callback);
+Route::post($uri, $callback);
+Route::put($uri, $callback);
+Route::patch($uri, $callback);
+Route::delete($uri, $callback);
+Route::options($uri, $callback);
+
+1. the router take first a string '/' then use a function to return the defined view.
+Route::get('/', function () {
+    return 'Hello, World!';
+}); it can returns 
+2. we can call a controller which will call it is view and put data from model in it like this :
+Route::get('/user', [UserController::class, 'index']);
+3.  We can use the 3rd word typed in the address like localhost/post/slug as parameter to call specific post from a blog for example like: 
+Route::get('post/{slug}', [PostController::class, 'show']);
+4. Named Routes
+5.Redirected Routes: you can redirect to other routes like this Route::redirect('/here', '/there'); 
+
+III. Model-View-Controller
+1. Handle the link between business logic (backend/data) and presentation logic (frontend) 
+2. We can call them using router Route::get('/', [ControllerName::class, 'method']);
+3. We can define single action controller (contains only one method) :
+class IndexController extends Controller
+{
+    //
+    public function __invoke()
+    {
+        return view('welcome');
+    }
+}
+when we call them we do not need a method in the arguments
+
+Route::get('/', IndexController::class); 
+4. Views : Blade for view templates (checkout syntax cheatsheets)
+5. Models: we can use the following commands to create the models: 
+	-php artisan make:model ModelName 
+	-php artisan make:model ModelName (-options: -m -mr)
+
+
+IV. Admin Panel (to be continued):
+	-Nova official one developped by laravel team but paid
+	-Voyager free :
+		-download using : composer require tcg/voyager
+		-install: php artisan voyager:install
+
+V. Laravel CLI => PHP ARTISAN :
+	it allows you to do everything like creating models, controllers even creating tables in the database...
+	list of all commands:
+	  The list command lists all commands:
+  clear-compiled       Remove the compiled class file
+  db                   Start a new database CLI session
+  down                 Put the application into maintenance / demo mode
+  env                  Display the current framework environment
+  help                 Display help for a command
+  inspire              Display an inspiring quote
+  list                 List commands
+  migrate              Run the database migrations
+  optimize             Cache the framework bootstrap files
+  serve                Serve the application on the PHP development server
+  test                 Run the application tests
+  tinker               Interact with your application
+  up                   Bring the application out of maintenance mode
+ auth
+  auth:clear-resets    Flush expired password reset tokens
+ cache
+  cache:clear          Flush the application cache
+  cache:forget         Remove an item from the cache
+  cache:table          Create a migration for the cache database table
+ config
+  config:cache         Create a cache file for faster configuration loading
+  config:clear         Remove the configuration cache file
+ db
+  db:seed              Seed the database with records
+  db:wipe              Drop all tables, views, and types
+ event
+  event:cache          Discover and cache the application's events and listeners
+  event:clear          Clear all cached events and listeners
+  event:generate       Generate the missing events and listeners based on registration
+  event:list           List the application's events and listeners
+ key
+  key:generate         Set the application key
+ make
+  make:cast            Create a new custom Eloquent cast class
+  make:channel         Create a new channel class
+  make:command         Create a new Artisan command
+  make:component       Create a new view component class
+  make:controller      Create a new controller class
+  make:event           Create a new event class
+  make:exception       Create a new custom exception class
+  make:factory         Create a new model factory
+  make:job             Create a new job class
+  make:listener        Create a new event listener class
+  make:mail            Create a new email class
+  make:middleware      Create a new middleware class
+  make:migration       Create a new migration file
+  make:model           Create a new Eloquent model class
+  make:notification    Create a new notification class
+  make:observer        Create a new observer class
+  make:policy          Create a new policy class
+  make:provider        Create a new service provider class
+  make:request         Create a new form request class
+  make:resource        Create a new resource
+  make:rule            Create a new validation rule
+  make:seeder          Create a new seeder class
+  make:test            Create a new test class
+ migrate
+  migrate:fresh        Drop all tables and re-run all migrations
+  migrate:install      Create the migration repository
+  migrate:refresh      Reset and re-run all migrations
+  migrate:reset        Rollback all database migrations
+  migrate:rollback     Rollback the last database migration
+  migrate:status       Show the status of each migration
+ notifications
+  notifications:table  Create a migration for the notifications table
+ optimize
+  optimize:clear       Remove the cached bootstrap files
+ package
+  package:discover     Rebuild the cached package manifest
+ queue
+  queue:batches-table  Create a migration for the batches database table
+  queue:clear          Delete all of the jobs from the specified queue
+  queue:failed         List all of the failed queue jobs
+  queue:failed-table   Create a migration for the failed queue jobs database table
+  queue:flush          Flush all of the failed queue jobs
+  queue:forget         Delete a failed queue job
+  queue:listen         Listen to a given queue
+  queue:prune-batches  Prune stale entries from the batches database
+  queue:prune-failed   Prune stale entries from the failed jobs table
+  queue:restart        Restart queue worker daemons after their current job
+  queue:retry          Retry a failed queue job
+  queue:retry-batch    Retry the failed jobs for a batch
+  queue:table          Create a migration for the queue jobs database table
+  queue:work           Start processing jobs on the queue as a daemon
+ route
+  route:cache          Create a route cache file for faster route registration
+  route:clear          Remove the route cache file
+  route:list           List all registered routes
+ sail
+  sail:install         Install Laravel Sail's default Docker Compose file
+  sail:publish         Publish the Laravel Sail Docker files
+ schedule
+  schedule:list        List the scheduled commands
+  schedule:run         Run the scheduled commands
+  schedule:test        Run a scheduled command
+  schedule:work        Start the schedule worker
+ schema
+  schema:dump          Dump the given database schema
+ session
+  session:table        Create a migration for the session database table
+ storage
+  storage:link         Create the symbolic links configured for the application
+ stub
+  stub:publish         Publish all stubs that are available for customization
+ vendor
+  vendor:publish       Publish any publishable assets from vendor packages
+ view
+  view:cache           Compile all of the application's Blade templates
+  view:clear           Clear all compiled view files 
+
+
+
+
+
+
+Resources :
+-Official Documentation : https://laravel.com/docs/8.x/
+-Cheatsheet : https://learninglaravel.net/cheatsheet/
+-Artisan Cheat Sheet : https://artisan.page/   
+-Beginner tutorial : https://www.techjblog.com/index.php/laravel-tutorial-for-beginners/

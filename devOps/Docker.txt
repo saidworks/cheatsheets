@@ -1,0 +1,3 @@
+Docker commands:
+ -to run an image : 'docker run imageName' => we can obtain image name from dockerhub
+ -to run an image interactively : 'docker run imageName it'   
