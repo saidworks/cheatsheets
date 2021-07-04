@@ -46,11 +46,20 @@ class IndexController extends Controller
 when we call them we do not need a method in the arguments
 
 Route::get('/', IndexController::class); 
-4. Views : Blade for view templates (checkout syntax cheatsheets)
+4. Views : -Blade for view templates (checkout syntax cheatsheets)
+	   -inside view('folder.name') '.' means '/' for path writing	
+	   - there is no delete method in forms but we can access this using laravel method spoofing, in blade 		inside the form we can specify the method using @method('delete')  
 5. Models: we can use the following commands to create the models: 
 	-php artisan make:model ModelName 
 	-php artisan make:model ModelName (-options: -m -mr)
-
+	- we can use tinker to populate database's tables using : 
+		php artisan tinker 
+		App\Models\ModelName::factory()->times(n)->create([attributes of foreign keys])
+		n: number of entries we want to create
+	- we can create pivot table for managing many to many relationships like this:
+		php artisan make:migration create_tablename_table --create=tablename
+	- we can check if an entry is in a table using contains method and return true or false value:
+		$this->likes->contains('user_id',$user->id); (Like and User are the table)
 
 IV. Admin Panel (to be continued):
 	-Nova official one developped by laravel team but paid
