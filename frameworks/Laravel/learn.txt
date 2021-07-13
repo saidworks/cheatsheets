@@ -60,6 +60,12 @@ Route::get('/', IndexController::class);
 		php artisan make:migration create_tablename_table --create=tablename
 	- we can check if an entry is in a table using contains method and return true or false value:
 		$this->likes->contains('user_id',$user->id); (Like and User are the table)
+	- to enable soft delete for a table (keep it physically but add a column showing that it is deleted we can use) likes table case:
+		php artisan make:migration add_soft_deletes_to_likes_table --table=likes
+	   	in migration: 
+			-up : $table->softDeletes();
+			-down: $table->dropSoftDeletes();
+
 
 IV. Admin Panel (to be continued):
 	-Nova official one developped by laravel team but paid
@@ -181,7 +187,9 @@ V. Laravel CLI => PHP ARTISAN :
   view:cache           Compile all of the application's Blade templates
   view:clear           Clear all compiled view files 
 
-
+VI. Middlewares:
+	-php artisan make:middleware Admin
+	-php artisan make:middleware Redac
 
 
 

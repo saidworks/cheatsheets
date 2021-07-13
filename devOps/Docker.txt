@@ -1,3 +1,51 @@
+
+
+Docker image 
+Docker registry 
 Docker commands:
  -to run an image : 'docker run imageName' => we can obtain image name from dockerhub
- -to run an image interactively : 'docker run imageName it'   
+ -to run an image interactively : 'docker run imageName it' 
+
+Dockerfile : - set of instructions used to create a Docker image
+
+ 	FROM -  to set the base image
+	RUN - to execute a command
+	COPY & ADD  - to copy files from host to the container
+	CMD - to set the default command to execute when the container starts
+	EXPOSE - to expose an application port 
+Docker Image: - a read-only template used to spin up a runnable instance of an application
+	1. build image
+	# build an image
+	# OPTIONS - optional;  define extra configuration
+	# PATH - required;  sets the location of the Dockefile and  any referenced files 
+	
+		docker build [OPTIONS] PATH
+
+	# Where OPTIONS can be:
+		-t, --tag - set the name and tag of the image
+		-f, --file - set the name of the Dockerfile
+		--build-arg - set build-time variables
+
+		# Find all valid options for this command 
+		docker build --help
+	2. run image :
+		# execute an image
+	# OPTIONS - optional;  define extra configuration
+	# IMAGE -  required; provides the name of the image to be executed
+	# COMMAND and ARGS - optional; instruct the container to run specific commands when it starts 
+	docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+	# Where OPTIONS can be:
+	-d, --detach - run in the background 
+	-p, --publish - expose container port to host
+	-it - start an interactive shell
+
+	# Find all valid options for this command 	
+	docker run --help
+Docker Registry - a central mechanism to store and distribute Docker images
+	# tag an image
+	# SOURCE_IMAGE[:TAG]  - required and the tag is optional; define the name of an image on the current 	machine 
+	# TARGET_IMAGE[:TAG] -  required and the tag is optional; define the repository, name, and version of an 	image docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+	# push an image to a registry 
+	# NAME[:TAG] - required and the tag is optional; name, set the image name to be pushed to the registry	
+	docker push NAME[:TAG]
