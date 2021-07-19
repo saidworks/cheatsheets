@@ -1,10 +1,9 @@
-
-
 Docker image 
-Docker registry 
+
 Docker commands:
- -to run an image : 'docker run imageName' => we can obtain image name from dockerhub
- -to run an image interactively : 'docker run imageName it' 
+ 	-to run an image : 'docker run imageName' => we can obtain image name from dockerhub
+ 	-to run an image interactively : 'docker run imageName it' 
+	-to delete a docker image : docker image rm -f imageName
 
 Dockerfile : - set of instructions used to create a Docker image
 
@@ -49,3 +48,8 @@ Docker Registry - a central mechanism to store and distribute Docker images
 	# push an image to a registry 
 	# NAME[:TAG] - required and the tag is optional; name, set the image name to be pushed to the registry	
 	docker push NAME[:TAG]
+	example : # push the `python-helloworld` application in version v1.0.0 
+		# to the `pixelpotato` repository in DockerHub
+		docker push pixelpotato/python-helloworld:v1.0.0
+
+
