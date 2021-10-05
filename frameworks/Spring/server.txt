@@ -1,0 +1,1 @@
+./jboss-cli.sh --connect command=:shutdown  (stop wildfly in folder opt/wildfly/bin)
