@@ -1,0 +1,16 @@
+#python
+venv/
+
+#php
+vendors/ 
+
+#java
+.mvn
+
+#IDE
+.idea/
+.vscode
+__pychache__
+
+#npm 
+node_modules/
