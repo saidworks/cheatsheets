@@ -54,3 +54,11 @@ git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
+
+
+get restore => to restore to previous version before staging 
+
+
+to sync local branch with remote one use the following commmad : git branch --set-upstream-to=origin/main main
+
+to solve problem related to docs created in github with unrelated history to local one use : git pull origin master --allow-unrelated-histories
