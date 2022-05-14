@@ -1,0 +1,6 @@
+
+Generate requirements.txt
+Use Pipenv or other tools is recommended for improving your development flow.
+
+pip3 freeze > requirements.txt  # Python3
+pip freeze > requirements.txt  # Python2
