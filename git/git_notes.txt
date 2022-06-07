@@ -56,15 +56,15 @@ git branch -u origin/main main
 git remote set-head origin -a
 
 
-get restore => to restore to previous version before staging 
+-> get restore => to restore to previous version before staging 
 
 
-to sync local branch with remote one use the following commmad : git branch --set-upstream-to=origin/main main
+->to sync local branch with remote one use the following commmad : git branch --set-upstream-to=origin/main main
 
-to solve problem related to docs created in github with unrelated history to local one use : git pull origin master --allow-unrelated-histories
+->to solve problem related to docs created in github with unrelated history to local one use : git pull origin master --allow-unrelated-histories
 
 
-delete files or folder remote without delete locally
+->delete files or folder remote without delete locally
 So, for a single file:
 
 git rm --cached mylogfile.log
@@ -72,3 +72,8 @@ git rm --cached mylogfile.log
 and for a single directory:
 
 git rm --cached -r mydirectory
+
+
+->to ammend to a commit message you can use : 
+
+git commit --amend -m
