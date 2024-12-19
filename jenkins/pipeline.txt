@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Apply Terraform Changes') {
+      steps {
+        script {
+          // Set the Terraform directory and file name
+          def terraformDir = '/path/to/terraform/directory'
+          def terraformFile = 'terraform_specific_name.tf'
+
+          // Install Terraform and Terragrunt (if not already installed)
+          sh 'curl -o terraform https://releases.hashicorp.com/terraform/1.1.6/terraform_1.1.6_linux_amd64.zip'
+          sh 'unzip terraform'
+          sh 'chmod +x terraform'
+          sh 'curl -o terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.28.6/terragrunt_0.28.6_linux_amd64.zip'
+          sh 'unzip terragrunt'
+          sh 'chmod +x terragrunt'
+
+          // Initialize Terraform and Terragrunt
+          sh "terraform init -input=false"
+          sh "terragrunt init"
+
+          // Apply the Terraform changes
+          sh "terragrunt apply -auto-approve ${terraformDir} -var-file=${terraformFile}"
+        }
+      }
+    }
+  }
+}
