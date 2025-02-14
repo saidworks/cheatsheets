@@ -67,3 +67,11 @@ You will need to enter the password for `newuser`. Once logged in, you can run s
 8. Verify privileges by logging in as the new user.
 
 This should help you set up a new PostgreSQL user, create a database, and assign the necessary privileges on that database.
+
+
+
+
+to start service
+``bash 
+pg_ctl start
+```
