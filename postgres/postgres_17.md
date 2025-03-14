@@ -1,3 +1,13 @@
+# Windows GUI installation
+
+You might need to add the following variables to sys envs before starting the configuration:
+
+C:\Program Files\PostgreSQL\[YOUR PG VERSION]\bin
+C:\Program Files\PostgreSQL\[YOUR PG VERSION]\lib
+
+also you will need to note down the password you typed for the super user in the installation 
+
+
 # After installation using scoop
 Run run 'pg_ctl start' or 'pg_ctl stop' to start and stop the database or
 register it as a service by running 'pg_ctl register -N PostgreSQL' from an elevated shell.
