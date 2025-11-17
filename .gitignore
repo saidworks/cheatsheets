@@ -1,0 +1,18 @@
+# VS Code
+.vscode/
+*.suo
+*.user
+*.userprefs
+
+# IntelliJ
+.idea/
+*.iws
+*.ipr
+*.iml
+
+# Rider
+.rider/
+*.rider
+*.suo
+*.user
+*.userprefs
